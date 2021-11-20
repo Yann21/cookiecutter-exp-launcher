@@ -1,4 +1,5 @@
 {
+    "project_slug": "ml-exp-launcher",
     "wandb_key": "xhae82ha9100yui8",
     "python_version": "3.9",
     "aws_region": "eu-central-1",
