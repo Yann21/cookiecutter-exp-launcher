@@ -1,0 +1,59 @@
+program: ../src/sweeper.py
+method: grid
+
+parameters:
+  tree_method:
+    values: ["auto"]
+  eta:
+    values: [0.3]  # Default
+#    values: [0.2, 0.3]
+  reg_lambda:
+    values: [0.9, 1]  # Default
+#    values: [0.8, 1.0, 1.5]
+  gamma:
+    values: [0]  # Default
+#    values: [0, 1, 2]
+  max_depth:
+    values: [6, 7, 8]  # Default
+#    values: [3, 5, 7, 9]
+  n_estimators:
+    values: [300]  # Default
+#    values: [100, 200, 300, 400, 500]
+  window_size:
+    values: [13, 17, 19]  # Default
+#    values: [7, 9, 11]
+  ar:
+    values: [1, 3, 5, 7, 9]
+  
+  bootstrap:
+    values: [1]
+
+  early_stopping_rounds:
+    values: [10, 20, 50]
+
+  bootstrap_splits:
+    values: [2, 5]
+
+  cum_pred:
+    values: [1]
+
+  mw1: 
+    values: [0]
+    # values: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+  mw2:
+    values: [0]
+    #values: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+
+  feature_exclude:
+    values: [
+      "",  # Default
+    ]
+  feature_flags:
+    values: [
+      "",
+    ]
+  model:
+    values: [
+      "xgb",  # Default
+#      "xgb lr",
+    ]
