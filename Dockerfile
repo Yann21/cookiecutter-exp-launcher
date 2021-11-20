@@ -1,4 +1,3 @@
-#FROM hello-world
 FROM python:3.9
 
 WORKDIR /app
@@ -8,7 +7,7 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-ENV WANDB_API_KEY="REPLACE_KEY"
-ENV WANDB_RUN="GENERATED_BY_START_SWEEP"
+ENV WANDB_API_KEY="{{cookiecutter.wandb_key}}"
+ENV WANDB_RUN="yann21/repo-src/q6amhwrz"
 
 CMD ["sh", "-c", "wandb agent $WANDB_RUN"]

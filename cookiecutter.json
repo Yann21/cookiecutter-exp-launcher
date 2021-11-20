@@ -1,0 +1,10 @@
+{
+    "wandb_key": "xhae82ha9100yui8",
+    "python_version": "3.9",
+    "aws_region": "eu-central-1",
+    "ecs_cluster": "",
+    "task_definition": "",
+    "ecr_repo": "",
+    "aws_subnet": "subnet-0000",
+    "aws_security_group": "sg-0000"
+}

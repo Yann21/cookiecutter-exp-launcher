@@ -2,16 +2,16 @@ start:
 	./start_sweep.sh
 docker:
 	@docker build -t exp-runner .
-	@docker tag exp-runner 992940520675.dkr.ecr.eu-central-1.amazonaws.com/wandb-exp
-	@docker push 992940520675.dkr.ecr.eu-central-1.amazonaws.com/wandb-exp
+	@docker tag exp-runner {{cookiecutter.ecr_repo}}
+	@docker push {{cookiecutter.ecr_repo}}
 
 execute:
 	@aws ecs run-task \
-		--region eu-central-1 \
-		--cluster MLJobs \
-		--task-definition VOCWandb:3 \
+		--region {{cookiecutter.aws_region}} \
+		--cluster {{cookiecutter.ecs_cluster}} \
+		--task-definition {{cookiecutter.task_definition}} \
 		--launch-type FARGATE \
-		--network-configuration "awsvpcConfiguration={subnets=[subnet-06752accdfdab8204],securityGroups=[sg-01331015613ce0e88],assignPublicIp='ENABLED'}" \
+		--network-configuration "awsvpcConfiguration={subnets=[{{cookiecutter.aws_subnet}}],securityGroups=[cookiecutter.aws_security_group],assignPublicIp='ENABLED'}" \
 		--count 10
 
 
