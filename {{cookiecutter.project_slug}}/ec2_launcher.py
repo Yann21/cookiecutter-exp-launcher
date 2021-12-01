@@ -1,7 +1,7 @@
 #%%
 import boto3
 
-region = {{cookiecutter.aws_region}}
+region = "{{cookiecutter.aws_region}}"
 
 ecs_client = boto3.client(
   "ecs", 
