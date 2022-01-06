@@ -1,9 +1,11 @@
 start:
-	./start_sweep.sh
+	python ./aws/initializer.py
+	./wandb/start_sweep.sh
+
 docker:
 	@docker build -t exp-runner .
-	@docker tag exp-runner {{cookiecutter.ecr_repo}}
-	@docker push {{cookiecutter.ecr_repo}}
+	@docker tag exp-runner $ECR_REPO
+	@docker push $ECR_REPO
 
 execute:
 	@aws ecs run-task \
@@ -11,7 +13,7 @@ execute:
 		--cluster {{cookiecutter.ecs_cluster}} \
 		--task-definition {{cookiecutter.task_definition}} \
 		--launch-type FARGATE \
-		--network-configuration "awsvpcConfiguration={subnets=[{{cookiecutter.aws_subnet}}],securityGroups=[cookiecutter.aws_security_group],assignPublicIp='ENABLED'}" \
+		--network-configuration "awsvpcConfiguration={subnets=[$AWS_SUBNET],securityGroups=[$SECURITY_GROUP],assignPublicIp='ENABLED'}" \
 		--count 10
 
 

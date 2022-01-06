@@ -1,5 +1,6 @@
-program: ../src/demo.py
+program: src/demo.py
 method: grid
+project: {{cookiecutter.project_slug}}
 
 parameters:
   eta:

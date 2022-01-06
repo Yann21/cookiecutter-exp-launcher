@@ -1,11 +1,12 @@
 {
     "project_slug": "ml-exp",
-    "wandb_key": "xhae82ha9100yui8",
-    "aws_region": "eu-central-1",
     "namespace": "MLExp",
-    "ecs_cluster": "MLExpCluster",
-    "task_definition": "MLExpTask",
-    "ecr_repo": "ml-exp-repo",
-    "aws_subnet": "subnet-0000",
-    "aws_security_group": "sg-0000"
+    "aws_region": "eu-central-1",
+
+    "task_definition": "{{cookiecutter.namespace}}Task",
+    "ecs_cluster": "{{cookiecutter.namespace}}Cluster",
+    "ecr_repo": "{{cookiecutter.project_slug}}-repo",
+    "vpc": "{{cookiecutter.namespace}}VPC",
+
+    "wandb_key": "c72a4df3b5c420cab249daac191cebeba68d0a6c"
 }

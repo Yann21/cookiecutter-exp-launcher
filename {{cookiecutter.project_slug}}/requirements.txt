@@ -1,2 +1,4 @@
 wandb
 pyforest
+sklearn
+xgboost

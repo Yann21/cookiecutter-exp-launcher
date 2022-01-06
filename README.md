@@ -17,7 +17,7 @@ Features
 
 -   Select number of AWS instances on which to run the experiment.
     ![AWS Instances](docs/aws_running_instances.png)
--   [WanDB](https://wandb.ai) integration: Visualize results on online dashboard.
+-   [WanDB](https://wandb.ai) integration: Visualize results in real time with parallel plot.
     ![WandB Dashboard](docs/wandb_experiment_dashboard.png)
 -   Plug and play: Change Python code to include your own model.
 -   Makefile: Automate common tasks.
