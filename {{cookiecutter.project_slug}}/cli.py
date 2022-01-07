@@ -62,22 +62,33 @@ def docker():
 @click.argument("count", type=int)
 def run(count):
   """Run experiment on count machines."""
-  response = ecs_client.run_task(
-    cluster="{{cookiecutter.ecs_cluster}}", 
-    taskDefinition="{{cookiecutter.task_definition}}",
-    launchType="FARGATE", 
-    count=count, 
-    networkConfiguration={
-      "awsvpcConfiguration": {
-        "subnets": ["{aws_subnet}"],
-        "securityGroups": ["{security_group}"],
-        "assignPublicIp": "ENABLED",
+  def run_task(count):
+    # AWS built-in limitation
+    assert count <= 10
+    response = ecs_client.run_task(
+      cluster="{{cookiecutter.ecs_cluster}}", 
+      taskDefinition="{{cookiecutter.task_definition}}",
+      launchType="FARGATE", 
+      count=count, 
+      networkConfiguration={
+        "awsvpcConfiguration": {
+          "subnets": ["{aws_subnet}"],
+          "securityGroups": ["{security_group}"],
+          "assignPublicIp": "ENABLED",
+        }
       }
-    }
-  )
+    )
+  
+  # Distribute in packs of 10
+  for _ in range(count // 10):
+    run_task(10)
+  if (count % 10) != 0:
+    run_task(count % 10)
+
 
 @click.command()
 def clean():
+  """Remove all used resources."""
   subprocess.run(["python", "aws/clean.py"], check=True)
 
 

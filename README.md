@@ -1,5 +1,5 @@
-Cookiecutter - AWS Tuner in under 5 minutes
-===========================================
+Cookiecutter - ML experiments in AWS the easy way
+=================================================
 
 ![image](https://travis-ci.org/audreyfeldroy/cookiecutter-pypackage.svg?branch=master%0A%20:target:%20https://travis-ci.org/github/audreyfeldroy/cookiecutter-pypackage%0A%20:alt:%20Build%20Status)
 ![image](https://readthedocs.org/projects/cookiecutter-pypackage/badge/?version=latest%0A%20:target:%20https://cookiecutter-pypackage.readthedocs.io/en/latest/?badge=latest%0A%20:alt:%20Documentation%20Status)

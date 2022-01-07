@@ -5,12 +5,9 @@ project: {{cookiecutter.project_slug}}
 parameters:
   eta:
     values: [0.25, 0.30, 0.35]
-
   max_depth:
     values: [2, 3, 4, 5, 6, 7, 8]
-
   num_round:
     values: [20, 30, 40, 50]
-
   reg_lambda:
     values: [0.9, 1.0, 1.1]
