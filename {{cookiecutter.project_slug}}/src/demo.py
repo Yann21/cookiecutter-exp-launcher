@@ -34,6 +34,8 @@ def score_model(params):
   y_pred = bst.predict(dtest).argmax(axis=1)
   return metrics.precision_score(y_test, y_pred, average="macro")
 
-with wandb.init(config=param, reinit=True, project="{{cookiecutter.project_slug}}", entity="changemeuser") as run:
+with wandb.init(config=param, reinit=True, project="{{cookiecutter.project_slug}}",
+#  entity="changemeuser"
+ ) as run:
   precision = score_model(param)
   wandb.log({"precision": precision})
