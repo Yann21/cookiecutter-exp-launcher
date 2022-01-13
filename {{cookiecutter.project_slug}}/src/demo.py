@@ -16,7 +16,6 @@ params = {
   "reg_lambda": args["reg_lambda"],
   "eta": args["eta"],
   "objective": "reg:linear",
-  "num_class": 3,
 }
 num_round = args["num_round"]
 

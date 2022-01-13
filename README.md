@@ -9,18 +9,17 @@ scaling up hyperparameter tuning and ML experiments.
 
 -   GitHub repo:
     <https://github.com/Yann21/cookiecutter-exp-launcher/>
-<!---   Documentation: <https://cookiecutter-pypackage.readthedocs.io/>-->
 -   Free software: BSD license
+-   Read Medium [companion article](https://medium.com/@yann.hoffmaaann/using-compute-power-to-iterate-faster-through-ml-experiments-94c72342adaf)
 
 Features
 --------
 
 -   Select number of AWS instances on which to run the experiment.
-    ![AWS Instances](docs/aws_running_instances.png)
+    ![AWS Instances](img/aws_running_instances.png)
 -   [WanDB](https://wandb.ai) integration: Visualize results in real time with parallel plot.
-    ![WandB Dashboard](docs/wandb_experiment_dashboard.png)
+    ![WandB Dashboard](img/wandb_experiment_dashboard.png)
 -   Plug and play: Change Python code to include your own model.
--   Makefile: Automate common tasks.
 
 
 Quickstart
@@ -37,9 +36,19 @@ Generate a Python package project:
 
 Then:
 
--   Follow cookiecutter instructions and enter AWS and WandDB informations.
--   Execute pipeline with `make all`
--   TBD ...
+-   Follow cookiecutter instructions and enter AWS and WandDB credentials.
+```{r}
+$~ cd ml-exp/
+
+Initialize AWS resources (need be done only once)
+$~ ./cli.py init
+
+Build and send the Docker application to AWS
+$~ ./cli.py docker
+
+Pull the trigger
+$~ ./cli.py run 20
+```
 
 
 ### Room for improvement
@@ -47,6 +56,8 @@ There are countless ways in which you can improve the application. Here are
 some ideas:
 - Use Bayesian optimization instead of grid search for faster convergence (WandB).
 - Create your own EC2 instances instead of using the pricier Fargate.
+- Initialize a spot ECS cluster.
+- [...]
 
 ### Submit a Pull Request
 

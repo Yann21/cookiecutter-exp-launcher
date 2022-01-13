@@ -89,18 +89,18 @@ def sed(filename, word, replacement):
 
 
 def main():
-    # Step 1: Create ECR repo for Docker images
+    print("Creating ECR repo")
     ecr_response = create_ecr_repo("{{cookiecutter.ecr_repo}}")
     repo_uri = ecr_response["repository"]["repositoryUri"]
     sed("cli.py", "{ecr_uri}", repo_uri)
 
-    # Step 2: Define task definitions to run ML jobs
+    print("Definiting task definitions")
     task_definition_response = create_task_definition("{{cookiecutter.task_definition}}", repo_uri)
 
-    # Step 3: Create ECS cluster
+    print("Creating empty ECS cluster")
     ecs_response = create_ecs_cluster("{{cookiecutter.ecs_cluster}}")
 
-    # Step 4: Define VPC for Fargate cluster
+    print("Setting up VPC for Fargate")
     vpc_id, subnet_id, security_group_id = create_vpc("{{cookiecutter.vpc}}")
     sed("cli.py", "{aws_subnet}", subnet_id)
     sed("cli.py", "{security_group}", security_group_id)
