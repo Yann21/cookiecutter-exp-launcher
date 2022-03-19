@@ -1,4 +1,4 @@
-Cookiecutter - ML experiments in AWS the easy way
+Cookiecutter - ML Experiments in AWS, the easy way
 =================================================
 
 ![image](https://travis-ci.org/audreyfeldroy/cookiecutter-pypackage.svg?branch=master%0A%20:target:%20https://travis-ci.org/github/audreyfeldroy/cookiecutter-pypackage%0A%20:alt:%20Build%20Status)
@@ -58,6 +58,9 @@ some ideas:
 - Create your own EC2 instances instead of using the pricier Fargate.
 - Initialize a spot ECS cluster.
 - [...]
+
+### TODO
+* Add e-mail notifier when the experiment is finished
 
 ### Submit a Pull Request
 
