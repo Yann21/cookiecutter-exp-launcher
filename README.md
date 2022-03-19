@@ -1,4 +1,4 @@
-Cookiecutter - ML Experiments in AWS, the easy way
+Cookiecutter - ML Experiments in AWS, The Easy Way
 =================================================
 
 ![image](https://travis-ci.org/audreyfeldroy/cookiecutter-pypackage.svg?branch=master%0A%20:target:%20https://travis-ci.org/github/audreyfeldroy/cookiecutter-pypackage%0A%20:alt:%20Build%20Status)
